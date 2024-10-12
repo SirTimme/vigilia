@@ -1,44 +1,9 @@
 from datetime import datetime
-from enum import Enum
 
 from pydantic import BaseModel, Field
 
-
-class Attributes(BaseModel):
-    image: str
-    name: str
-
-
-class Actor(BaseModel):
-    id: str = Field(..., validation_alias="ID")
-    attributes: Attributes = Field(..., validation_alias="Attributes")
-
-
-class ContainerStatus(str, Enum):
-    ATTACH = "attach"
-    COMMIT = "commit"
-    COPY = "copy"
-    CREATE = "create"
-    DESTROY = "destroy"
-    DETACH = "detach"
-    DIE = "die"
-    EXEC_CREATE = "exec_create"
-    EXEC_DETACH = "exec_detach"
-    EXEC_DIE = "exec_die"
-    EXEC_START = "exec_start"
-    EXPORT = "export"
-    HEALTH_STATUS = "health_status"
-    KILL = "kill"
-    OOM = "oom"
-    PAUSE = "pause"
-    RENAME = "rename"
-    RESIZE = "resize"
-    RESTART = "restart"
-    START = "start"
-    STOP = "stop"
-    TOP = "top"
-    UNPAUSE = "unpause"
-    UPDATE = "update"
+from models.actor import Actor
+from models.container_status import ContainerStatus
 
 
 class Event(BaseModel):

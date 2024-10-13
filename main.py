@@ -2,7 +2,6 @@ import os
 
 import docker
 import requests
-from dotenv import load_dotenv
 
 from models.event import process_event
 
